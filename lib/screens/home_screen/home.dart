@@ -77,26 +77,25 @@ class Home extends StatelessWidget {
                 ),
               ]),
         ),
-        body: Column(
-          children: [
-            const PostTextField(),
-            const Divider(
+        body: CustomScrollView(
+          slivers: [
+            const SliverToBoxAdapter(child: const PostTextField()),
+            const SliverToBoxAdapter(
+              child:  Divider(
+                color: Color(0xFF898F9C),
+                thickness: 2,
+              ),
+            ),
+            SliverToBoxAdapter(child: StoryList()),
+            SliverToBoxAdapter(
+              child: const Divider(
+                color: Color(0xFF898F9C),
+              ),
+            ),
+            SliverList(delegate: SliverChildBuilderDelegate(childCount: 2,(context,index){
+              return const PostCard();
+            }))
 
-              
-              color: Color(0xFF898F9C),
-              thickness: 2,
-            ),
-            StoryList(),
-            const Divider(
-              color: Color(0xFF898F9C),
-            ),
-            Expanded(
-              child: ListView.builder(
-                  itemCount: 2,
-                  itemBuilder: (context, index) {
-                    return const PostCard();
-                  }),
-            )
           ],
         ),
       ),

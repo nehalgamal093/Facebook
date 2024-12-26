@@ -77,10 +77,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       textColor: Colors.white,
                       borderColor: const Color(0xFF1877F2),
                       onBtnPressed: () {
-                        if (_formKey.currentState!.validate()) {
+                        // if (_formKey.currentState!.validate()) {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) => Home()));
-                        }
+                        // }
                       },
                     ),
                   ],

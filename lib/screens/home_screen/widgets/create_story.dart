@@ -5,59 +5,69 @@ class CreateStory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: 178,
-        color: Colors.white,
-        child: Stack(
-          clipBehavior: Clip.hardEdge,
-          alignment: Alignment.center,
+    Size size = MediaQuery.of(context).size;
+    return Column(
+      children: [
+        Expanded(
+            child: Stack(
+          alignment: Alignment.bottomCenter,
           children: [
-            Align(
-              alignment: Alignment.topCenter,
-              child: ClipRRect(
-                borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(15),
-                    topLeft: Radius.circular(15)),
-                child: Image.asset('assets/images/messi.jpg',
-                    width: 112, height: 100, fit: BoxFit.cover),
-              ),
-            ),
-            Positioned(
-              height: 30,
-              bottom: 50,
-              child: Container(
-                width: 30,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  image: DecorationImage(
-                    image: AssetImage('assets/icons/plus-circle.png'),
+            Column(
+              children: [
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(10),
+                      topLeft: Radius.circular(10),
+                    ),
+                    child: Image.asset(
+                      width: size.width*.30,
+                      'assets/images/messi.jpg',
+
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                  borderRadius: BorderRadius.all(Radius.circular(60.0)),
                 ),
-              ),
+                const SizedBox(height: 46),
+              ],
             ),
-            const Positioned(
-              height: 50,
-              bottom: 0,
-              child: SizedBox(
-                width: 60,
-                child: Text(
-                  textAlign: TextAlign.center,
-                  'Create a Story',
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white, width: 3),
+                    shape: BoxShape.circle,
+                    color: const Color(0xFF1877F2),
+                  ),
+                  child: const Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+                ),
+                const Text(
+                  'Create a',
                   style: TextStyle(
-                      height: 1.5,
-                      fontSize: 12,
+                      height: 1.2,
+                      fontSize: 15,
                       color: Color(0xFF242527),
                       fontWeight: FontWeight.w600),
                 ),
-              ),
-            ),
+                const Text(
+                  'Story',
+                  style: TextStyle(
+                      height: 1.2,
+                      fontSize: 15,
+                      color: Color(0xFF242527),
+                      fontWeight: FontWeight.w600),
+                )
+              ],
+            )
           ],
-        ),
-      ),
+        ))
+      ],
     );
-
   }
 }
+
